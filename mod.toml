@@ -1,0 +1,95 @@
+# Config file for an example Banjo-Kazooie: Recompiled mod.
+
+# Fields that end up in the mod's manifest.
+[manifest]
+
+# Unique ID of this mod. Pick something long enough that it'll never be the same as any other mod.
+# The name displayed in the mod management menu is separate from this, but this should still be human readable
+# as it will show up in missing dependency errors.
+id = "bk_sir_slush_configuration"
+
+# Version of this mod.
+version = "1.0.0"
+
+# The name that will show up for this mod in the mod menu. This should be human readable.
+display_name = "Sir Slush Configuration"
+
+# The description that will show up when this mod is displayed in the mod menu. This should be human readable.
+description =  "Various customisation options for the Sir Slush enemies, including adjusting their throwing delay.\n\nThis mod has only been tested on the base game of Banjo-Kazooie"
+
+# A short description that will show up in this mod's entry in the mod list. This should be human readable and kept short
+# to prevent it from being cut off due to the limited space.
+short_description = "Customisation of Sir Slush's attacks"
+
+# Authors of this mod.
+authors = [ "Thermopolis" ]
+
+# ID of the target recomp game.
+game_id = "bk"
+
+# Minimum version of the target recomp (e.g. Banjo-Kazooie: Recompiled) that this mod can run on.
+minimum_recomp_version = "1.0.0"
+
+# Dependency mods. Each entry is the mod's ID and then an optional minimum version of the dependency mod.
+dependencies = [
+# Example dependency:
+#    "modname:1.0.0"
+]
+
+# Optional dependency mods. This has the same format as `dependencies`, but the game will still start if dependencies in this
+# list aren't present. You can query the presence of a given dependency by using `recomp_is_dependency_met` in recomputils.h.
+# Calling a function imported from an optional dependency that isn't present will trigger an error.
+optional_dependencies = [
+
+]
+
+# Native libraries (e.g. DLLs) and the functions they export.
+native_libraries = [
+# Example native library:
+#    { name = "my_native_library", funcs = ["my_native_library_function"] }
+]
+
+# Inputs to the mod tool.
+[inputs]
+
+# Input elf file to generate a mod from.
+elf_path = "build/mod.elf"
+
+# Output mod filename.
+mod_filename = "bk_sir_slush_configuration"
+
+# Reference symbol files.
+func_reference_syms_file = "BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+
+# Additional files to include in the mod.
+additional_files = ["thumb.png"]
+
+[[manifest.config_options]]
+id = "attack_enabled"
+name = "Sir Slush Attacks Enabled"
+description = "Toggle whether Sir Slush enemies attack or not.\n\nMod default is on\n\nVanilla behaviour is on"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "vanilla_flying_delay"
+name = "Vanilla Flying Delay Mechanics"
+description = "Toggle whether the delay between throws should be halved when flying\n\nMod default is off\n\nVanilla behaviour is on"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "seconds_delay"
+name = "Seconds Between Throws"
+description = "Changes the amount of time in seconds between Snowball throws.\n\nMod defualt is 5\n\nVanilla value is 0.8"
+type = "Number"
+min = 0
+max = 20
+step = 0.1
+precision = 1
+percent = false
+default = 5
+
