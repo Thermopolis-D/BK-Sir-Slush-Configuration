@@ -47,28 +47,15 @@ int __chSnowman_CCW_playerInProtectedZone(void);
 int __chSnowman_isPlayerInAttackRange(Actor *this, s32 min_distance, s32 max_distance);
 void __chSnowman_enterDeath(Actor *this);
 void __chSnowman_setYawTarget(Actor *this, f32 max_rotation);
-
-//bool preventSnowmanAttack(ActorMarker *marker);
 bool func_8038DD34(ActorMarker *marker);
-
 void func_8032BC18(Actor *this);
 enum map_e map_get(void);
-
 bool maSlalom_isActive(void);
-
-//void maSnowy_init(void);
 void maSnowy_incTotal(void);
-
 bool func_8038DD14(void);
-
 int subaddie_playerIsWithinSphere(Actor *this, s32 dist);
 bool subaddie_playerIsWithinSphereAndActive(Actor *this, s32 dist);
-
-//s32 fileProgressFlag_get(s32);
 bool fileProgressFlag_get(enum file_progress_e);
-
 enum bsgroup_e player_movementGroup(void);
-
-enum bsgroup_e player_getWaterState(void);
-
+enum bswatergroup_e player_getWaterState(void);
 s32 globalTimer_getTime(void);
